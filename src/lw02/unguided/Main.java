@@ -34,7 +34,7 @@ public class Main {
 
                         food.add(foodStock);
 
-                        String[] drinkStock = new String[3];
+                        String[] drinkStock = new String[2];
                         drinkStock[0] = "4"; // EsTeh
                         drinkStock[1] = "2"; // EsJeruk
 
