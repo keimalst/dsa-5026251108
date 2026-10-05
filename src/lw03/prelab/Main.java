@@ -1,11 +1,14 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         // Problem 1: Playlist (List)
-        Scanner sc = new Scanner(new File("playlist.txt"));
+        var stream1 = Main.class.getResourceAsStream("playlist.txt");
+        if (stream1 == null) {
+            stream1 = Main.class.getClassLoader().getResourceAsStream("lw03/prelab/playlist.txt");
+        }
+
+        Scanner sc = new Scanner(stream1);
         List<String> playlist = new ArrayList<>();
         while (sc.hasNextLine()) {
             String line = sc.nextLine().trim();
@@ -24,7 +27,12 @@ public class Main {
         for (int i = 0; i < playlist.size(); i++) System.out.println((i + 1) + ": " + playlist.get(i));
 
         // Problem 2: Workshop participants (Set)
-        sc = new Scanner(new File("participants.txt"));
+        var stream2 = Main.class.getResourceAsStream("participants.txt");
+        if (stream2 == null) {
+            stream2 = Main.class.getClassLoader().getResourceAsStream("lw03/prelab/participants.txt");
+        }
+
+        sc = new Scanner(stream2);
         Set<String> participants = new LinkedHashSet<>();
         int dup = 0;
         while (sc.hasNextLine()) {
@@ -41,7 +49,12 @@ public class Main {
         System.out.println("Duplicate registrations: " + dup);
 
         // Problem 3: Product inventory (Map)
-        sc = new Scanner(new File("inventory.txt"));
+        var stream3 = Main.class.getResourceAsStream("inventory.txt");
+        if (stream3 == null) {
+            stream3 = Main.class.getClassLoader().getResourceAsStream("lw03/prelab/inventory.txt");
+        }
+
+        sc = new Scanner(stream3);
         Map<String, Integer> stock = new LinkedHashMap<>();
         int failed = 0;
         while (sc.hasNext()) {
