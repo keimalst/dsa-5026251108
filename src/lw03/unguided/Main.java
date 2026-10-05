@@ -33,7 +33,7 @@ public class Main {
                 if(courses.containsKey(code)){
                     checks.add(code + ": " + courses.get(code) + " students");
                 } else{
-                    checks.add(code + ": Not Found");
+                    checks.add(code + ": Not found");
                 }
             }
         }
